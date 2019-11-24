@@ -18,8 +18,15 @@ program
     .command('clear')
     .description('clear all task')
     .action(() => {
-        api.clear()
+        api.clear().then(() => {
+            console.log('清除成功');
+        }, () => {
+            console.log('清除失败');
+        })
     });
 
 program.parse(process.argv);
-console.log(program.xxx);
+
+if (process.argv.length === 2) {
+    api.showAll()
+}
