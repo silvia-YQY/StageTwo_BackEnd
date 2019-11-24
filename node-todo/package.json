@@ -1,5 +1,8 @@
 {
     "name": "yqy-node-tode",
+    "scripts": {
+        "test": "jest"
+    },
     "bin": {
         "t": "cli.js"
     },
@@ -12,5 +15,8 @@
     "dependencies": {
         "commander": "^4.0.1",
         "inquirer": "^7.0.0"
+    },
+    "devDependencies": {
+        "jest": "^24.9.0"
     }
 }
