@@ -1,41 +1,10 @@
-const homedir = require('os').homedir()
-// 优先使用用户设置的变量HOME目录，若没有设置则使用系统默认的HOME目录
-const home = process.env.HOME || homedir
-const p = require('path')
-const fs = require('fs')
-const dbPath = p.join(home, '.todo')
+const db = require('./db.js')
 
-module.exports.add = (title) => {
+module.exports.add = async (title) => {
     // 读取之前的任务
-    fs.readFile(dbPath, { flag: 'a+' }, (error, data) => {
-        if (error) {
-            console.log('error', error)
-        }
-        else {
-            let list;
-            try {
-                list = JSON.parse(data.toString())
-                console.log(list);
-            } catch (err) {
-                list = []
-            }
-            console.log(list);
-            const task = {
-                title: title,
-                done: false
-            }
-            list.push(task)
-            console.log(list);
-            const string = JSON.stringify(list)
-            fs.writeFile(dbPath, string + '\n', (err) => {
-                if (err) {
-                    console.log('写文件出错：', err);
-                }
-
-            })
-        }
-
-    })
+    const list = await db.read()  // 由于read为异步，故需要await等待返回后再继续
     // 添加一个 title 任务
+    list.push({ title, done: false })
     // 存储任务到文件
+    await db.write(list)
 }

@@ -8,8 +8,11 @@ program
     .description('add a task')
     .action((...args) => {
         const words = args.pop().join(' ')
-        console.log(words);
-        api.add(words)
+        api.add(words).then(() => {
+            console.log('添加成功')
+        }, () => {
+            console.log('添加失败')
+        })
     });
 program
     .command('clear')
@@ -17,7 +20,6 @@ program
     .action((...args) => {
         console.log('this is clear');
     });
-
 
 program.parse(process.argv);
 console.log(program.xxx);
