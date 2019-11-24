@@ -1,0 +1,32 @@
+Arguments: 
+  D:\math\nodejs\node.exe D:\math\nodejs\node_modules\node_global_modules\node_modules\yarn\bin\yarn.js glabal add node-todo-1
+
+PATH: 
+  C:\Users\yingl\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\yingl\bin;D:\math\jkd1.8.0\jdk1.8.0_60\bin;D:\math\jkd1.8.0\jdk1.8.0_60\jre\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;D:\math\Python\Scripts;D:\math\Python;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;D:\math\nodejs\node_modules\node_global_modules;D:\math\nodejs;D:\math\SVN\bin;C:\WINDOWS\System32\OpenSSH;D:\math\apache-maven-3.5.4\bin;D:\math\sqlite3;D:\math\PuttY;D:\math\TortoiseGit\bin;C:\Program Files\Git\cmd;D:\math\cmder;D:\math\Ruby\Ruby26-x64\bin;C:\Users\yingl\AppData\Local\Microsoft\WindowsApps;D:\math\Microsoft VS Code\bin;C:\Users\yingl\AppData\Roaming\npm;D:\math\nodejs\node_modules\node_global_modules;D:\math\WebStorm\bin;D:\IntelliJ IDEA Community Edition 2019.2\bin;D:\math\Docker\Docker Toolbox;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.10.0
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Couldn't find a package.json file in "E:\\GitHub\\Font-End\\XDML\\StageTwo_BackEnd"
+      at new MessageError (D:\math\nodejs\node_modules\node_global_modules\node_modules\yarn\lib\cli.js:186:110)
+      at D:\math\nodejs\node_modules\node_global_modules\node_modules\yarn\lib\cli.js:40048:15
+      at Generator.next (<anonymous>)
+      at step (D:\math\nodejs\node_modules\node_global_modules\node_modules\yarn\lib\cli.js:98:30)
+      at D:\math\nodejs\node_modules\node_global_modules\node_modules\yarn\lib\cli.js:109:13
+      at <anonymous>
