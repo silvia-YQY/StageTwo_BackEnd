@@ -26,6 +26,9 @@ server.on('request', (request: IncomingMessage, response: ServerResponse) => {
                         response.end(data);
                     }
                 );
+            } else if (error.errno === -4068) {
+                response.statusCode = 403;
+                response.end('无权查看目录内容');
             } else {
                 response.statusCode = 500;
                 response.end('服务器繁忙');
