@@ -6,6 +6,7 @@ import * as url from 'url';
 
 const server = http.createServer();
 const publicDir = p.resolve(__dirname, 'public');
+let cacheAge = 3600 * 24 * 265;
 
 server.on('request', (request: IncomingMessage, response: ServerResponse) => {
     const { method, url: path, headers } = request;
@@ -38,6 +39,8 @@ server.on('request', (request: IncomingMessage, response: ServerResponse) => {
                 response.end('服务器繁忙');
             }
         } else {
+            // 返回文件内容
+            response.setHeader('Cache-Control', `public, max-age=${cacheAge}`);
             response.end(data);
         }
     });
