@@ -9,8 +9,12 @@ const publicDir = p.resolve(__dirname, 'public');
 
 server.on('request', (request: IncomingMessage, response: ServerResponse) => {
     const { method, url: path, headers } = request;
-    console.log(path);
     const { pathname: pathName, search } = url.parse(path);
+    if (method != 'GET') {
+        response.statusCode = 405;
+        response.end('fake');
+        return;
+    }
     let fileName = pathName.substr(1);
     if (fileName === '') {
         fileName = 'index.html';
