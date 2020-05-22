@@ -1,24 +1,23 @@
-var mysql = require('mysql');
-var connection = mysql.createConnection({
+const { Sequelize, Model, DataTypes } = require('sequelize');
+const sequelize = new Sequelize('yuan', 'root', '123456', {
   host: '192.168.99.100',
-  user: 'root',
-  password: '123456'
+  dialect: 'mysql'
 });
 
-connection.connect();
-// CREATE TABLE IF NOT EXISTS user CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-connection.query('CREATE DATABASE IF NOT EXISTS yuan DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_unicode_520_ci;', function (error, results, fields) {
-  if (error) throw error;
-  console.log('创建数据库: ', results);
-});
+// 创建user 模型
+class User extends Model { }
+// 初始化user
+User.init({
+  username: DataTypes.STRING,
+  birthday: DataTypes.DATE
+}, { sequelize, modelName: 'user' });
 
-connection.query('use yuan;')
-connection.query(`CREATE TABLE IF NOT EXISTS user(
-  name text,
-  age  int
-)`, function (error, results, fields) {
-  if (error) throw error;
-  console.log('创建表: ', results);
-});
-
-connection.end();
+// 同步数据库
+sequelize.sync()
+  .then(() => User.create({
+    username: 'janedoe',
+    birthday: new Date(1980, 6, 20)
+  }))
+  .then(jane => {
+    console.log('jane', jane.toJSON());
+  })
