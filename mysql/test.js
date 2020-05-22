@@ -12,12 +12,26 @@ User.init({
   birthday: DataTypes.DATE
 }, { sequelize, modelName: 'user' });
 
-// 同步数据库
-sequelize.sync()
-  .then(() => User.create({
-    username: 'janedoe',
-    birthday: new Date(1980, 6, 20)
-  }))
-  .then(jane => {
-    console.log('jane', jane.toJSON());
+
+async function run () {
+  User.destroy({
+    where: {
+      id: 1
+    }
   })
+  const users = await User.findAll();
+  console.log("all users:", JSON.stringify(users, null, 2));
+  sequelize.close();
+}
+
+run()
+
+// 同步数据库
+// sequelize.sync()
+//   .then(() => User.create({
+//     username: 'janedoe',
+//     birthday: new Date(1980, 6, 20)
+//   }))
+//   .then(jane => {
+//     console.log('jane', jane.toJSON());
+//   })
